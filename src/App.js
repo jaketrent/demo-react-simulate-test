@@ -1,8 +1,8 @@
 import React from "react";
 
 import "./App.css";
-import Button from "./Button.js";
-import TextInput from "./TextInput.js";
+import Button from "./react-test-utils/Button.js";
+import TextInput from "./react-test-utils/TextInput.js";
 
 function App() {
   const [clicked, setClicked] = React.useState(false);
