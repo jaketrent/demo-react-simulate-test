@@ -1,8 +1,8 @@
 import React from "react";
 
 import "./App.css";
-import Button from "./react-test-utils/Button.js";
-import TextInput from "./react-test-utils/TextInput.js";
+import Button from "./react-testing-library/Button.js";
+import TextInput from "./react-testing-library/TextInput.js";
 
 function App() {
   const [clicked, setClicked] = React.useState(false);
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div>
-      <h2>react-dom/test-utils</h2>
+      <h2>react-testing-library</h2>
       <Button onClick={handleClick}>Click Me</Button>
       <pre>Clicked: {clicked ? "true" : "false"}</pre>
       <TextInput onChange={handleChange} />
