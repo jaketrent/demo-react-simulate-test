@@ -1,28 +1,19 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import ReactTestUtils from "react-dom/test-utils";
+import { cleanup, fireEvent, render } from "@testing-library/react";
 
 import Button from "./Button.js";
 
-let div;
-
-beforeEach(() => {
-  div = document.createElement("div");
-});
-
-afterEach(() => {
-  ReactDOM.unmountComponentAtNode(div);
-});
+afterEach(cleanup);
 
 it("renders without crashing", () => {
-  ReactDOM.render(<Button />, div);
+  render(<Button />);
 });
 
 it("captures clicks", done => {
-  const ref = React.createRef();
   function handleClick() {
     done();
   }
-  ReactDOM.render(<Button onClick={handleClick} ref={ref} />, div);
-  ReactTestUtils.Simulate.click(ref.current);
+  const { getByText } = render(<Button onClick={handleClick}>Click Me</Button>);
+  const node = getByText("Click Me");
+  fireEvent.click(node);
 });
